@@ -238,12 +238,12 @@ if __name__ == '__main__':
 	for score in scores:
 		strt = time.time()
 		print "# Tuning hyper-parameters for", score, "\n"
-		clf = GridSearchCV(LinearSVC(C=1), param_grid, cv=5, scoring= '%s' % score)
+		clf =  LinearSVC(C=1) # GridSearchCV(LinearSVC(C=1), param_grid, cv=5, scoring= '%s' % score)
 		clf.fit(gwbowv, train["class"])
-		print "Best parameters set found on development set:\n"
-		print clf.best_params_
-		print "Best value for ", score, ":\n"
-		print clf.best_score_
+		#print "Best parameters set found on development set:\n"
+		#print clf.best_params_
+		#print "Best value for ", score, ":\n"
+		#print clf.best_score_
 		Y_true, Y_pred  = test["class"], clf.predict(gwbowv_test)
 		print "Report"
 		print classification_report(Y_true, Y_pred, digits=6)
