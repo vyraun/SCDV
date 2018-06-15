@@ -30,7 +30,7 @@ def drange(start, stop, step):
 def cluster_GMM(num_clusters, word_vectors):
 	# Initalize a GMM object and use it for clustering.
 	clf =  GaussianMixture(n_components=num_clusters,
-                    covariance_type="tied", init_params='kmeans', max_iter=50)
+                    covariance_type="tied", init_params='kmeans', max_iter=1)
 	# Get cluster assignments.
 	clf.fit(word_vectors)
 	idx = clf.predict(word_vectors)
